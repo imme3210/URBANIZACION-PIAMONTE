@@ -3,126 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Junta Piamonte - Panel en Vivo</title>
+    <title>Junta Piamonte</title>
     <script src="https://tailwindcss.com"></script>
     <script src="https://tailwindcss.com"></script>
 </head>
-<body class="bg-slate-100 font-sans text-slate-900">
+<body class="bg-gray-100 font-sans">
 
-    <nav class="bg-slate-900 text-white p-5 flex justify-between items-center shadow-xl">
-        <div class="flex items-center gap-3">
-            <div class="w-3 h-3 bg-green-500 rounded-full animate-ping"></div>
-            <h1 class="text-xl font-black italic tracking-tighter">URBANIZACIÓN PIAMONTE</h1>
-        </div>
-        <button onclick="document.getElementById('modalLogin').classList.remove('hidden')" class="bg-blue-600 hover:bg-blue-700 text-xs font-bold py-2 px-4 rounded-lg shadow-lg transition">
+    <nav class="bg-slate-900 text-white p-4 flex justify-between items-center shadow-lg">
+        <h1 class="text-xl font-bold italic">URBANIZACIÓN PIAMONTE</h1>
+        <button onclick="document.getElementById('miModal').classList.remove('hidden')" class="bg-blue-600 hover:bg-blue-700 text-xs font-bold py-2 px-4 rounded">
             ACCESO RESIDENTES
         </button>
     </nav>
 
-    <div class="max-w-6xl mx-auto p-6 md:p-10">
-        <!-- Resumen Financiero Automático -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div class="bg-white p-6 border-l-8 border-slate-400 shadow-lg rounded-xl">
-                <p class="text-slate-400 text-xs font-black uppercase mb-1">Saldo Disponible</p>
-                <p id="saldo-total" class="text-3xl font-black text-slate-800">$ 0</p>
+    <div class="max-w-6xl mx-auto p-6">
+        <!-- Tus montos actualizados -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <div class="bg-white p-6 border-l-8 border-gray-400 shadow-md rounded">
+                <p class="text-gray-500 text-xs font-black uppercase">Saldo Disponible</p>
+                <p class="text-3xl font-bold text-gray-800">$ 2.050.000</p>
             </div>
-            <div class="bg-white p-6 border-l-8 border-blue-500 shadow-lg rounded-xl">
-                <p class="text-blue-500 text-xs font-black uppercase mb-1">Total Aportes</p>
-                <p id="total-aportes" class="text-3xl font-black text-blue-600">$ 0</p>
+            <div class="bg-white p-6 border-l-8 border-blue-500 shadow-md rounded">
+                <p class="text-blue-500 text-xs font-black uppercase">Aportes del mes</p>
+                <p class="text-3xl font-bold text-blue-600">$ 1.530.000</p>
             </div>
-            <div class="bg-white p-6 border-l-8 border-red-500 shadow-lg rounded-xl">
-                <p class="text-red-500 text-xs font-black uppercase mb-1">Total Gastos</p>
-                <p id="total-gastos" class="text-3xl font-black text-red-600">$ 0</p>
+            <div class="bg-white p-6 border-l-8 border-red-500 shadow-md rounded">
+                <p class="text-red-500 text-xs font-black uppercase">Gastos del mes</p>
+                <p class="text-3xl font-bold text-red-600">$ 4.225.000</p>
             </div>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            <!-- Columna de Aportes -->
+            <!-- Aportes -->
             <section>
-                <h2 class="text-xl font-black text-slate-700 mb-6 border-b-4 border-blue-500 pb-2">Aportes del mes</h2>
-                <div id="lista-aportes" class="space-y-4">
-                    <!-- Los datos aparecerán aquí -->
-                    <p class="text-slate-400 italic">Cargando aportes...</p>
+                <h2 class="text-xl font-extrabold text-gray-700 mb-4 border-b-2 border-blue-500">Aportes del mes</h2>
+                <div class="bg-white p-4 rounded-lg shadow-sm flex justify-between">
+                    <span><b class="block">Junta de Acción Comunal Piamonte</b><small class="text-gray-400">19/04/2024</small></span>
+                    <span class="text-green-700 font-bold">+$ 100.000</span>
                 </div>
             </section>
 
-            <!-- Columna de Gastos -->
+            <!-- Gastos -->
             <section>
-                <h2 class="text-xl font-black text-red-700 mb-6 border-b-4 border-red-500 pb-2 text-right">Gastos del mes</h2>
-                <div id="lista-gastos" class="space-y-4">
-                    <!-- Los datos aparecerán aquí -->
-                    <p class="text-slate-400 italic text-right">Cargando gastos...</p>
+                <h2 class="text-xl font-extrabold text-red-700 mb-4 border-b-2 border-red-500 text-right">Gastos del mes</h2>
+                <div class="bg-white p-4 rounded-lg shadow-sm flex justify-between">
+                    <span class="text-red-700 font-bold">-$ 15.000</span>
+                    <span class="text-right"><b class="block">Pago de Conserjes</b><small class="text-gray-400">18/04/2024</small></span>
                 </div>
             </section>
         </div>
     </div>
 
-    <!-- Modal Login -->
-    <div id="modalLogin" class="hidden fixed inset-0 bg-slate-900/80 flex items-center justify-center p-4 backdrop-blur-sm z-50">
-        <div class="bg-white rounded-3xl p-8 max-w-sm w-full shadow-2xl">
-            <h2 class="text-2xl font-black mb-6 text-slate-800 text-center">Panel de Control</h2>
-            <input type="text" placeholder="Usuario" class="w-full bg-slate-50 border-2 border-slate-100 p-3 mb-4 rounded-xl outline-none focus:border-blue-500">
-            <input type="password" placeholder="Contraseña" class="w-full bg-slate-50 border-2 border-slate-100 p-3 mb-6 rounded-xl outline-none focus:border-blue-500">
-            <button class="w-full bg-blue-600 text-white font-bold py-3 rounded-xl shadow-lg mb-3">ENTRAR</button>
-            <button onclick="document.getElementById('modalLogin').classList.add('hidden')" class="w-full text-slate-400 text-sm font-bold">CANCELAR</button>
+    <!-- Modal de Login -->
+    <div id="miModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl p-8 max-w-sm w-full">
+            <h2 class="text-2xl font-bold mb-4">Bienvenido</h2>
+            <input type="text" placeholder="Usuario" class="w-full border p-3 mb-3 rounded">
+            <input type="password" placeholder="Contraseña" class="w-full border p-3 mb-6 rounded">
+            <button onclick="document.getElementById('miModal').classList.add('hidden')" class="w-full bg-blue-600 text-white font-bold py-3 rounded">Entrar</button>
         </div>
     </div>
 
-    <script>
-        const URL_CSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQULFChRxJvZXJFx2pDfSa14nzmD7b1M3WQe5f3RbsEvKYDz1AneSmhLKYBL2JuPxYM-Ovfgv3_DXhB/pub?output=csv";
-
-        async function cargarExcel() {
-            try {
-                const res = await fetch(URL_CSV);
-                const csv = await res.text();
-                const filas = csv.split("\n").slice(1);
-
-                let ing = 0, egr = 0;
-                const contAportes = document.getElementById('lista-aportes');
-                const contGastos = document.getElementById('lista-gastos');
-                
-                contAportes.innerHTML = "";
-                contGastos.innerHTML = "";
-
-                filas.forEach(f => {
-                    const c = f.split(",");
-                    if(c.length < 4) return;
-
-                    const nombre = c[0];
-                    const fecha = c[1];
-                    const monto = parseInt(c[2].replace(/\D/g, "")) || 0;
-                    const tipo = c[3].trim().toLowerCase();
-
-                    const item = `
-                        <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex justify-between items-center transition hover:shadow-md">
-                            <div class="${tipo === 'gasto' ? 'order-2 text-right' : ''}">
-                                <b class="block text-slate-800 leading-tight">${nombre}</b>
-                                <small class="text-slate-400 font-bold">${fecha}</small>
-                            </div>
-                            <span class="font-black px-4 py-1 rounded-full text-sm ${tipo === 'aporte' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700 order-1'}">
-                                ${tipo === 'aporte' ? '+' : '-'}$ ${monto.toLocaleString('es-CO')}
-                            </span>
-                        </div>`;
-
-                    if(tipo === 'aporte') {
-                        contAportes.innerHTML += item;
-                        ing += monto;
-                    } else if(tipo === 'gasto') {
-                        contGastos.innerHTML += item;
-                        egr += monto;
-                    }
-                });
-
-                document.getElementById('total-aportes').innerText = $ ${ing.toLocaleString('es-CO')};
-                document.getElementById('total-gastos').innerText = $ ${egr.toLocaleString('es-CO')};
-                document.getElementById('saldo-total').innerText = $ ${(ing - egr).toLocaleString('es-CO')};
-
-            } catch (e) {
-                console.error("Error cargando datos:", e);
-            }
-        }
-
-        cargarExcel();
-    </script>
 </body>
 </html>
