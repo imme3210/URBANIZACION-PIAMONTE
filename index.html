@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Junta AcciÓn Comunal Piamonte</title>
-   <script src="https://tailwindcss.com"></script>
+    <title>Junta Acción Comunal Piamonte</title>
+    <!-- CORRECCIÓN AQUÍ: Agregamos el "cdn." antes de tailwindcss -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 font-sans">
-
+<body class="bg-gray-100 font-sans text-gray-900">
 
     <nav class="bg-slate-800 text-white p-4 flex justify-between items-center shadow-lg">
         <h1 class="text-xl font-bold italic">URBANIZACIÓN PIAMONTE</h1>
-        <button onclick="document.getElementById('miModal').classList.remove('hidden')" class="bg-blue-600 hover:bg-blue-700 text-xs font-bold py-2 px-4 rounded">
+        <button onclick="document.getElementById('miModal').classList.remove('hidden')" class="bg-blue-600 hover:bg-blue-700 text-xs font-bold py-2 px-4 rounded transition">
             ACCESO RESIDENTES
         </button>
     </nav>
@@ -37,17 +37,17 @@
             <!-- Aportes -->
             <section>
                 <h2 class="text-xl font-extrabold text-gray-700 mb-4 border-b-2 border-blue-500">Aportes del mes</h2>
-                <div class="bg-white p-4 rounded-lg shadow-sm flex justify-between">
+                <div class="bg-white p-4 rounded-lg shadow-sm flex justify-between items-center">
                     <span><b class="block">Junta de Acción Comunal Piamonte</b><small class="text-gray-400">19/04/2024</small></span>
-                    <span class="text-green-700 font-bold">+$ 100.000</span>
+                    <span class="text-green-700 font-bold bg-green-50 px-3 py-1 rounded">+$ 100.000</span>
                 </div>
             </section>
 
             <!-- Gastos -->
             <section>
                 <h2 class="text-xl font-extrabold text-red-700 mb-4 border-b-2 border-red-500 text-right">Gastos del mes</h2>
-                <div class="bg-white p-4 rounded-lg shadow-sm flex justify-between">
-                    <span class="text-red-700 font-bold">-$ 15.000</span>
+                <div class="bg-white p-4 rounded-lg shadow-sm flex justify-between items-center">
+                    <span class="text-red-700 font-bold bg-red-50 px-3 py-1 rounded">-$ 15.000</span>
                     <span class="text-right"><b class="block">Pago de Conserjes</b><small class="text-gray-400">18/04/2024</small></span>
                 </div>
             </section>
@@ -55,12 +55,17 @@
     </div>
 
     <!-- Modal de Login -->
-    <div id='miModal'class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-xl p-8 max-w-sm w-full">
-            <h2 class="text-2xl font-bold mb-4">Bienvenido</h2>
-            <input type="text" placeholder="Usuario" class="w-full border p-3 mb-3 rounded">
-            <input type="password" placeholder="Contraseña" class="w-full border p-3 mb-6 rounded">
-            <button onclick="document.getElementById('miModal').classList.add('hidden')" class="w-full bg-blue-600 text-white font-bold py-3 rounded">Entrar</button>
+    <div id="miModal" class="hidden fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-xl p-8 max-w-sm w-full shadow-2xl">
+            <h2 class="text-2xl font-bold mb-4 text-gray-800">Bienvenido</h2>
+            <label class="text-xs font-bold text-gray-400 uppercase">Usuario</label>
+            <input type="text" placeholder="Ej: tesorero" class="w-full border-2 border-gray-100 p-3 mb-3 rounded-lg focus:border-blue-500 outline-none">
+            <label class="text-xs font-bold text-gray-400 uppercase">Contraseña</label>
+            <input type="password" placeholder="••••••••" class="w-full border-2 border-gray-100 p-3 mb-6 rounded-lg focus:border-blue-500 outline-none">
+            <div class="flex flex-col gap-2">
+                <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition">Entrar al panel</button>
+                <button onclick="document.getElementById('miModal').classList.add('hidden')" class="text-gray-400 text-sm hover:text-gray-600 font-medium">Cancelar</button>
+            </div>
         </div>
     </div>
 
