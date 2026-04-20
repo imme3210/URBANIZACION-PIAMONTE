@@ -1,0 +1,26 @@
+<!-- Reemplaza el botón del header por este -->
+<button onclick="abrirModal()" class="bg-blue-600 hover:bg-blue-700 text-sm py-2 px-4 rounded">
+    Acceso residentes
+</button>
+
+<!-- Al final de tu archivo, antes del </body>, pega este Modal -->
+<div id="miModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-lg p-6 max-w-sm w-full shadow-xl">
+        <h2 class="text-xl font-bold mb-4">Iniciar Sesión</h2>
+        <input type="text" placeholder="Usuario" class="w-full border p-2 mb-2 rounded">
+        <input type="password" placeholder="Contraseña" class="w-full border p-2 mb-4 rounded">
+        <div class="flex justify-end gap-2">
+            <button onclick="cerrarModal()" class="text-gray-500 px-4 py-2">Cancelar</button>
+            <button class="bg-blue-600 text-white px-4 py-2 rounded">Entrar</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function abrirModal() {
+        document.getElementById('miModal').classList.remove('hidden');
+    }
+    function cerrarModal() {
+        document.getElementById('miModal').classList.add('hidden');
+    }
+</script>
