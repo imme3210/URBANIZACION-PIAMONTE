@@ -51,7 +51,28 @@
                     <input type="password" class="w-full p-3 rounded-xl bg-slate-100 border-transparent focus:bg-white focus:ring-2 focus:ring-blue-500 outline-none transition-all">
                 </div>
                 <button type="button" onclick="alert('Sistema en mantenimiento')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl shadow-lg transition-all transform active:scale-95">
-                    Entrar al Panel
+                    <button type="button" onclick="validarAcceso()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl shadow-lg transition-all transform active:scale-95">
+    Entrar al Panel
+</button>
+
+<script>
+function validarAcceso() {
+    // Aquí defines el usuario y contraseña autorizados
+    const usuarioCorrecto = "admin";
+    const passCorrecto = "12345";
+
+    const userIn = document.getElementById('userLote').value;
+    const passIn = document.getElementById('userPass').value;
+
+    if (userIn === usuarioCorrecto && passIn === passCorrecto) {
+        alert("¡Acceso concedido!");
+        document.getElementById('modalLogin').classList.add('hidden');
+        // Aquí podrías redireccionar o desbloquear funciones
+    } else {
+        alert("Usuario o contraseña incorrectos. Intente de nuevo.");
+    }
+}
+</script>
                 </button>
             </form>
         </div>
