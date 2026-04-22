@@ -61,51 +61,11 @@
             <button onclick="document.getElementById('modalLogin').classList.add('hidden')" class="w-full text-slate-400 text-sm font-bold">CANCELAR</button>
         </div>
     </div>
+    <iframe 
+  src="https://google.com" 
+  width="100%" 
+  height="700" 
+  style="border: 1px solid #ccc; border-radius: 8px;">
+</iframe>
 
-    <script>
-        const URL_CSV = "https://google.com";
-
-        async function cargarExcel() {
-            try {
-                const res = await fetch(URL_CSV);
-                const csv = await res.text();
-                const filas = csv.split("\n").slice(1);
-
-                let ing = 0, egr = 0;
-                const contA = document.getElementById('lista-aportes');
-                const contG = document.getElementById('lista-gastos');
-                contA.innerHTML = ""; contG.innerHTML = "";
-
-                filas.forEach(f => {
-                    const c = f.split(",");
-                    if(c.length < 4) return;
-
-                    const nombre = c[0].trim();
-                    const fecha = c[1].trim();
-                    const monto = parseInt(c[2].replace(/\D/g, "")) || 0;
-                    const tipo = c[3].trim().toLowerCase();
-
-                    const item = `
-                        <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex justify-between items-center">
-                            <div class="${tipo === 'gasto' ? 'order-2 text-right' : ''}">
-                                <b class="block text-slate-800 leading-tight uppercase text-sm">${nombre}</b>
-                                <small class="text-slate-400 font-bold">${fecha}</small>
-                            </div>
-                            <span class="font-black px-4 py-1 rounded-full text-sm ${tipo === 'aporte' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700 order-1'}">
-                                ${tipo === 'aporte' ? '+' : '-'}$ ${monto.toLocaleString('es-CO')}
-                            </span>
-                        </div>`;
-
-                    if(tipo === 'aporte') { contA.innerHTML += item; ing += monto; }
-                    else if(tipo === 'gasto') { contG.innerHTML += item; egr += monto; }
-                });
-
-                document.getElementById('total-aportes').innerText = $ ${ing.toLocaleString('es-CO')};
-                document.getElementById('total-gastos').innerText = $ ${egr.toLocaleString('es-CO')};
-                document.getElementById('saldo-total').innerText = $ ${(ing - egr).toLocaleString('es-CO')};
-            } catch (e) { console.error(e); }
-        }
-        cargarExcel();
-    </script>
-</body>
-</html>
+  
